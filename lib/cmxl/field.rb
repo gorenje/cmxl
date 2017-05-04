@@ -99,7 +99,11 @@ module Cmxl
         date
       end
     rescue ArgumentError # let's simply ignore invalid dates
-      date
+      if date =~ /0229$/
+        to_date(date.sub(/0229/,'0301'), year)
+      else
+        date
+      end
     end
 
     def to_amount_in_cents(value)
