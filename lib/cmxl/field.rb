@@ -100,7 +100,9 @@ module Cmxl
       end
     rescue ArgumentError # let's simply ignore invalid dates
       if date =~ /0229$/
-        to_date(date.sub(/0229/,'0301'), year)
+        to_date(date.sub(/0229$/,'0301'), year)
+      elsif date =~ /0230$/
+        to_date(date.sub(/0230$/,'0301'), year)
       else
         date
       end
